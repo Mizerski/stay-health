@@ -16,11 +16,7 @@ export const styles = StyleSheet.create({
     fontFamily: themes.fonts.fontFamily.bold,
     fontSize: themes.fonts.fontSize.rg,
   },
-  cardGrid: {
-    gap: 12,
-    marginTop: 23,
-  },
-  twoCard: {
+  inputRow: {
     width: "48%",
     gap: 12,
     flexDirection: "row",

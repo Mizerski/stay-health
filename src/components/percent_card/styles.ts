@@ -9,4 +9,9 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  navigation: {
+    position: "absolute",
+    right: 10,
+    top: 10,
+  },
 });

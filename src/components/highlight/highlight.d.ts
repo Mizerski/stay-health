@@ -1,4 +1,6 @@
 export interface HighlightProps {
   title: string;
-  description: string;
+  titleStyle?: object;
+  description?: string;
+  withIcon?: boolean;
 }

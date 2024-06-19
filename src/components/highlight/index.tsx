@@ -4,11 +4,11 @@ import { styles } from "./styles";
 import { HighlightProps } from "./highlight";
 
 
-export function Highlight({ title, description }: HighlightProps) {
+export function Highlight({ title, description, titleStyle }: HighlightProps) {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.description}>{description}</Text>
+            <Text style={[styles.title, titleStyle]}>{title}</Text>
+            {description && <Text style={styles.description}>{description}</Text>}
         </View>
     )
 }
