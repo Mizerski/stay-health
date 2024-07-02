@@ -9,6 +9,7 @@
       "@/utils/*": ["./src/utils/*"],
       "@/assets/*": ["./src/assets/*"],
       "@/constants/*": ["./src/constants/*"],
+      "@/storage/*": ["./src/storage/*"],
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, Button, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 
@@ -12,7 +12,9 @@ import { CustomButtom } from "@/components/custom_button";
 
 import { image } from "@/constants/user";
 
-import Logo from "@/assets/logo.png";
+import { getSnack } from "@/storage/snack/get_snack";
+import { useEffect, useState } from "react";
+import { SnackData } from "@/storage/snack/snackData.dto";
 
 export function HomeScreen() {
     const value1 = 80;
@@ -20,6 +22,8 @@ export function HomeScreen() {
 
     const average = AveragePercentage(value1, value2);
     const type = PercentCardType(value1, value2);
+
+    const [snacks, setSnacks] = useState<SnackData[]>([]);
 
     const navigation = useNavigation();
 
@@ -37,6 +41,28 @@ export function HomeScreen() {
     function handleNavigateToLogDiet() {
         navigation.navigate("LogDiet");
     }
+
+    useEffect(() => {
+        async function fetchSnacks() {
+            try {
+                const snackData = await getSnack();
+                setSnacks(snackData);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        fetchSnacks();
+    }, []);
+
+    const renderItem = ({ item }: { item: SnackData }) => (
+        <DayList
+            date={item.snackDate}
+            meal={item.snackName || 'No name'}
+            onPress={() => handleNavigateToLogDiet()}
+            isRed={item.snackType === 'red'}
+        />
+    );
 
     return (
         <SafeAreaView style={styles.container}>
@@ -75,18 +101,13 @@ export function HomeScreen() {
                 </Text>
 
 
-                <DayList
-                    date="20:00"
-                    meal="Café da manhã"
-                    onPress={() => handleNavigateToLogDiet()}
+                <FlatList
+                    data={snacks}
+                    renderItem={renderItem}
+                    keyExtractor={(item, index) => index.toString()}
                 />
 
-                <DayList
-                    date="20:00"
-                    meal="Café da manhã"
-                    onPress={() => handleNavigateToLogDiet()}
-                    isRed
-                />
+
             </View>
         </SafeAreaView>
     )

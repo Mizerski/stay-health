@@ -1,3 +1,4 @@
+import { themes } from "@/themes/index";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -13,8 +14,16 @@ export const styles = StyleSheet.create({
     top: 24,
   },
   navigation_alternative: {
-    position: "absolute",
-    left: 24,
-    top: 30,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  title: {
+    fontFamily: themes.fonts.fontFamily.bold,
+    fontSize: themes.fonts.fontSize.xl,
+    color: themes.colors.gray_2,
+
+    textAlign: "center",
+
+    width: "80%",
   },
 });

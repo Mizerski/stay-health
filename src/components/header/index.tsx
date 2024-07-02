@@ -25,12 +25,6 @@ export function Header({ onPress, type = "green", description, title }: HeaderPr
             backgroundColor = themes.colors.red_light;
             iconColor = themes.colors.red_dark;
             break;
-        case "gray":
-            backgroundColor = themes.colors.gray_6;
-            iconColor = themes.colors.gray_2;
-            fontSize = themes.fonts.fontSize.lg;
-            navigationStyle = styles.navigation_alternative;
-            break;
     }
 
     return (

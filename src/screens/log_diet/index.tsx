@@ -7,6 +7,7 @@ import { styles } from "./styles";
 
 import { Header } from "@/components/header";
 import { CustomButtom } from "@/components/custom_button";
+import { AlternativeHeader } from "@/components/header/alternative";
 
 
 export function LogDietScreen() {
@@ -18,10 +19,9 @@ export function LogDietScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Header
-                type="gray"
-                title="Refeição"
-                onPress={() => handleNavigateToHome()}
+            <AlternativeHeader
+                onPress={handleNavigateToHome}
+                title="Editar refeição"
             />
             <View style={styles.content}>
                 <View style={styles.buttonColumn}>
