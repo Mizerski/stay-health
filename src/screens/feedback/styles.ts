@@ -13,16 +13,25 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  img: {
+    marginVertical: 20,
+  },
   title: {
     fontSize: themes.fonts.fontSize.xxl,
     fontFamily: themes.fonts.fontFamily.bold,
     color: themes.colors.green_dark,
     marginBottom: 10,
   },
+  bold: {
+    fontFamily: themes.fonts.fontFamily.bold,
+  },
   description: {
     fontSize: themes.fonts.fontSize.md,
     color: themes.colors.gray_2,
     fontFamily: themes.fonts.fontFamily.regular,
+
+    textAlign: "center",
+
     marginBottom: 20,
   },
 });

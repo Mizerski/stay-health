@@ -34,11 +34,17 @@ export function HomeScreen() {
         navigation.navigate("Snack");
     }
 
+    function handleNavigateToLogDiet() {
+        navigation.navigate("LogDiet");
+    }
+
     return (
         <SafeAreaView style={styles.container}>
 
             <View style={styles.header}>
-                <Image source={Logo} />
+                <Text style={styles.title}>
+                    Olá, Wesley
+                </Text>
                 <Image
                     src={image}
                     style={styles.user_img}
@@ -68,41 +74,20 @@ export function HomeScreen() {
                     18.08.2021
                 </Text>
 
-                <DayList
-                    date="20:00"
-                    meal="Café da manhã"
-                />
-                <DayList
-                    date="12:00"
-                    meal="Almoço"
-                />
-                <DayList
-                    date="15:00"
-                    meal="Lanche"
-                    isRed
-                />
-            </View>
-
-            <View style={styles.day_list}>
-                <Text style={styles.date}>
-                    10.10.2021
-                </Text>
 
                 <DayList
                     date="20:00"
                     meal="Café da manhã"
+                    onPress={() => handleNavigateToLogDiet()}
                 />
+
                 <DayList
-                    date="12:00"
-                    meal="Almoço"
-                />
-                <DayList
-                    date="15:00"
-                    meal="Lanche"
+                    date="20:00"
+                    meal="Café da manhã"
+                    onPress={() => handleNavigateToLogDiet()}
                     isRed
                 />
             </View>
-
         </SafeAreaView>
     )
 }

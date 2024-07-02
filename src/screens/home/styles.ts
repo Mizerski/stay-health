@@ -15,6 +15,12 @@ export const styles = StyleSheet.create({
 
     justifyContent: "space-between",
     flexDirection: "row",
+    alignItems: "center",
+  },
+
+  title: {
+    fontSize: themes.fonts.fontSize.xl,
+    fontFamily: themes.fonts.fontFamily.bold,
   },
 
   user_img: {

@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     fontFamily: themes.fonts.fontFamily.bold,
     fontSize: themes.fonts.fontSize.rg,
   },
-  inputRow: {
+  row: {
     width: "48%",
     gap: 12,
     flexDirection: "row",

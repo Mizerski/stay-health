@@ -1,6 +1,6 @@
 export interface DayListProps {
-  date: string;
-  meal: string;
+  date?: string;
+  meal?: string;
   isRed?: boolean;
   onPress?: () => void;
 }

@@ -18,10 +18,7 @@ export const styles = StyleSheet.create({
   },
 
   icon: {
-    color: themes.colors.gray_7,
-    fontSize: themes.fonts.fontSize.xl,
-    fontFamily: themes.fonts.fontFamily.bold,
-    marginRight: 15,
+    marginRight: 10,
   },
   text: {
     color: themes.colors.gray_7,

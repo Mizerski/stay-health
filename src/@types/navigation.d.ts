@@ -3,11 +3,14 @@ export declare global {
     interface RootParamList {
       Home: undefined;
       Snack: undefined;
-      Feedback: undefined;
+      Feedback: {
+        isRedSelect: boolean;
+      };
       Statistics: {
         average: string;
         type: string;
       };
+      LogDiet: undefined;
     }
   }
 }
