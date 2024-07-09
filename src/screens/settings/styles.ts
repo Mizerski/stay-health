@@ -10,19 +10,25 @@ export const styles = StyleSheet.create({
 
   title: {
     fontFamily: themes.fonts.fontFamily.bold,
+    fontSize: themes.fonts.fontSize.xl,
+    color: themes.colors.gray_1,
+  },
+  option: {
+    fontFamily: themes.fonts.fontFamily.regular,
     fontSize: themes.fonts.fontSize.lg,
     color: themes.colors.gray_2,
-  },
 
+    marginBottom: 8,
+  },
   select_language_colunm: {
-    marginTop: 24,
-    height: 120,
+    marginTop: 30,
+    height: 160,
     flexDirection: "column",
     justifyContent: "space-between",
   },
 
   language_button: {
-    backgroundColor: themes.colors.gray_6,
+    backgroundColor: themes.colors.gray_5,
     borderRadius: 8,
     padding: 16,
     justifyContent: "center",

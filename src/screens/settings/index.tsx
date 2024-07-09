@@ -7,7 +7,7 @@ import { styles } from './styles';
 import { useLanguage } from '@/hooks/i18n';
 
 
-export function OptionScreen() {
+export function SettingScreen() {
     const { t, handleLaguageChange, language } = useLanguage();
     const [selectedLanguage, setSelectedLanguage] = useState<string | null>(language);
 
@@ -36,10 +36,10 @@ export function OptionScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>{t("settings_languages")} </Text>
+            <Text style={styles.title}>{t("tab_settings")} </Text>
 
             <View style={styles.select_language_colunm}>
-
+                <Text style={styles.option}>{t("settings_languages")}:</Text>
                 <TouchableOpacity
                     style={getStyle("pt", "button")}
                     onPress={() => handleLanguageChange("pt")}

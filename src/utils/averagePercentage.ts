@@ -1,14 +1,23 @@
-export function AveragePercentage(value1: number, value2: number): string {
-  const average = (value1 + value2) / 2;
-  return `${average.toFixed(0)}%`;
+export function AveragePercentage(
+  greenCount: number,
+  redCount: number
+): string {
+  const totalCount = greenCount + redCount;
+  if (totalCount === 0) return "0%";
+  const greenPercentage = (greenCount / totalCount) * 100;
+  const redPercentage = (redCount / totalCount) * 100;
+  const highestPercentage = Math.max(greenPercentage, redPercentage);
+  return `${highestPercentage.toFixed(0)}%`;
 }
-
 export function PercentCardType(
-  value1: number,
-  value2: number
+  greenCount: number,
+  redCount: number
 ): "green" | "red" | "gray" {
-  const averagePercentString = AveragePercentage(value1, value2);
-  const averagePercentNumber = parseFloat(averagePercentString.slice(0, -1));
-
-  return averagePercentNumber >= 50 ? "green" : "red";
+  const totalCount = greenCount + redCount;
+  if (totalCount === 0) return "gray";
+  const greenPercentage = (greenCount / totalCount) * 100;
+  const redPercentage = (redCount / totalCount) * 100;
+  if (greenPercentage > redPercentage) return "green";
+  else if (redPercentage > greenPercentage) return "red";
+  else return "gray";
 }

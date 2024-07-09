@@ -8,7 +8,7 @@ import { StatisticsScreen } from "@/screens/statistics";
 import { CreateSnackScreen } from "@/screens/create_snack";
 import { FeedbackScreen } from "@/screens/feedback";
 import { LogDietScreen } from "@/screens/log_diet";
-import { OptionScreen } from "@/screens/option_screen";
+import { SettingScreen } from "@/screens/settings";
 import { TabBarIcon } from "@/components/route_icons";
 
 import { themes } from "../themes";
@@ -59,7 +59,7 @@ export function AppRoute() {
                     tabBarIcon: (props) => <TabBarIcon {...props} name="create" />
                 }} />
 
-            <Tab.Screen name="Options" component={OptionScreen}
+            <Tab.Screen name="Options" component={SettingScreen}
                 options={{
                     title: t("tab_settings"),
                     tabBarIcon: (props) => <TabBarIcon {...props} name="setting" />

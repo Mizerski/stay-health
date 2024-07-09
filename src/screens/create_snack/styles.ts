@@ -6,6 +6,13 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: themes.colors.gray_7,
   },
+  title: {
+    fontFamily: themes.fonts.fontFamily.bold,
+    fontSize: themes.fonts.fontSize.xl,
+    color: themes.colors.gray_1,
+
+    marginBottom: 30,
+  },
   content: {
     padding: 24,
   },

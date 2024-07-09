@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback, View } from "react-native";
+import { Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback, View, Text } from "react-native";
 
 import { styles } from "./styles";
 
 import { CustomButtom } from "@/components/custom_button";
 import { CustomInput } from "@/components/custom_input";
 import { SelectedButton } from "@/components/selected_button";
-import { AlternativeHeader } from "@/components/header/alternative";
 
 import { createSnack } from "@/storage/snack/create_snack";
 import { useTranslation } from "react-i18next";
@@ -31,10 +30,6 @@ export function CreateSnackScreen() {
         navigation.navigate("Feedback", { isRedSelect: isRedSelect });
     }
 
-    function handleNavigateToHome() {
-        resetState();
-        navigation.navigate("Home");
-    }
 
     function handleSelectedButton(type: string) {
         if (type === "green") {
@@ -80,16 +75,13 @@ export function CreateSnackScreen() {
     }
 
 
+
     return (
         <KeyboardAvoidingView style={styles.container}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <SafeAreaView style={styles.container}>
-                    <AlternativeHeader
-                        onPress={handleNavigateToHome}
-                        title={t("create_snack_title")}
-                    />
-
                     <View style={styles.content} >
+                        <Text style={styles.title}>{t("create_snack_title")}</Text>
                         <CustomInput title={t("name")}
                             onChangeText={setSnackName}
                             value={snackName}

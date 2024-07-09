@@ -11,7 +11,9 @@ export declare global {
         average: string;
         type: string;
       };
-      LogDiet: undefined;
+      LogDiet: {
+        snackId: SnackData;
+      };
     }
   }
 }

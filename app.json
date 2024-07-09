@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "diet-rocket",
-    "slug": "diet-rocket",
+    "name": "StayHealthy",
+    "slug": "stay-healthy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

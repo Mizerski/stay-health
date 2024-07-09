@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { Text, View, Image, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+import LunchIcon from "@expo/vector-icons/MaterialIcons";
 
 import { AveragePercentage, PercentCardType } from "@/utils/averagePercentage";
 
@@ -15,19 +18,13 @@ import { image } from "@/constants/user";
 
 import { getSnack } from "@/storage/snack/get_snack";
 import { SnackData } from "@/storage/snack/snackData.dto";
-import { useTranslation } from "react-i18next";
 
 export function HomeScreen() {
 
     const { t } = useTranslation();
-
-    const value1 = 80;
-    const value2 = 20;
-
-    const average = AveragePercentage(value1, value2);
-    const type = PercentCardType(value1, value2);
-
     const [snacks, setSnacks] = useState<SnackData[]>([]);
+    const [average, setAverage] = useState<string>("");
+    const [type, setType] = useState<"green" | "red" | "gray">("gray");
 
     const navigation = useNavigation();
 
@@ -42,28 +39,50 @@ export function HomeScreen() {
         navigation.navigate("Snack");
     }
 
-    function handleNavigateToLogDiet() {
-        navigation.navigate("LogDiet");
+    function handleNavigateToLogDiet(snacks: SnackData) {
+        navigation.navigate("LogDiet", {
+            snackId: snacks
+        });
+        console.log("dados enviados -> ", snacks);
     }
 
-    useEffect(() => {
-        async function fetchSnacks() {
-            try {
-                const snackData = await getSnack();
-                setSnacks(snackData);
-            } catch (error) {
-                console.error(error);
-            }
-        }
 
-        fetchSnacks();
-    }, []);
+
+
+    useFocusEffect((
+        useCallback(() => {
+            async function loadSnacks() {
+                const snack = await getSnack();
+                setSnacks(snack);
+
+
+                let greenSnackCount = 0;
+                let redSnackCount = 0;
+
+                snack.forEach((item) => {
+                    if (item.snackType === 'green') greenSnackCount++;
+                    else if (item.snackType === 'red') redSnackCount++;
+                });
+
+
+                const averagePercent = AveragePercentage(greenSnackCount, redSnackCount);
+                const type = PercentCardType(greenSnackCount, redSnackCount);
+
+                setAverage(averagePercent);
+                setType(type);
+            }
+            loadSnacks();
+        }, [])
+    ));
+
+
+
 
     const renderItem = ({ item }: { item: SnackData }) => (
         <DayList
             date={item.snackDate}
             meal={item.snackName || 'No name'}
-            onPress={() => handleNavigateToLogDiet()}
+            onPress={() => handleNavigateToLogDiet(item)}
             isRed={item.snackType === 'red'}
         />
     );
@@ -96,6 +115,8 @@ export function HomeScreen() {
                 <CustomButtom
                     title={t("new_snack")}
                     onPress={() => handleNavigateToSnack()}
+                    withIcon
+                    icon={<LunchIcon name="lunch-dining" size={18} />}
                 />
             </View>
 
@@ -108,7 +129,7 @@ export function HomeScreen() {
                 <FlatList
                     data={snacks}
                     renderItem={renderItem}
-                    keyExtractor={(item, index) => index.toString()}
+                    keyExtractor={(_item, index) => index.toString()}
                 />
 
 

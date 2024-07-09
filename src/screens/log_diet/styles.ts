@@ -7,6 +7,20 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: themes.colors.gray_7,
   },
+
+  text: {
+    color: "black",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 16,
+  },
+
+  snackItem: {
+    backgroundColor: themes.colors.gray_6,
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 16,
+  },
   content: {
     padding: 24,
   },
