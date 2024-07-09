@@ -1,0 +1,22 @@
+{
+    "en": {
+        "test": "Translation test",
+        "welcome": "Welcome,",
+        "new_snack": "New snack",
+        "percent_card_description": "of the meals within the diet",
+        "meals": "Meals",
+        "tab_home": "Home",
+        "tab_snack": "Snack",
+        "tab_settings": "Settings",
+        "settings_english": "English",
+        "settings_portuguese": "Portuguese",
+        "settings_languages": "Languages",
+        "create_snack_title": "Register meal",
+        "name": "Name",
+        "description": "Description",
+        "date": "Date",
+        "time": "Time",
+        "yes": "Yes",
+        "no": "No"
+    }
+}

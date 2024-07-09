@@ -2,6 +2,8 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "paths": {
       "@/screens/*": ["./src/screens/*"],
       "@/components/*": ["./src/components/*"],
@@ -10,6 +12,8 @@
       "@/assets/*": ["./src/assets/*"],
       "@/constants/*": ["./src/constants/*"],
       "@/storage/*": ["./src/storage/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/i18n/*": ["./src/i18n/*"],
     }
   }
 }

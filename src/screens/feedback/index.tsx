@@ -10,7 +10,6 @@ import Happy from "@/assets/happy.png";
 import Sad from "@/assets/sad.png";
 
 import { colors } from "@/themes/colors";
-import { Highlight } from "@/components/highlight";
 
 
 export function FeedbackScreen() {
@@ -21,7 +20,7 @@ export function FeedbackScreen() {
     const { isRedSelect } = route.params as FeedbackScreenProps;
 
     function handleNavigateToHome() {
-        navigation.navigate("Home");
+        navigation.navigate("HomeStack");
     }
 
     return (

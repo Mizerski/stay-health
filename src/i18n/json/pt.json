@@ -1,0 +1,22 @@
+{
+    "pt": {
+        "test": "Teste de tradução",
+        "welcome": "Bem-vindo,",
+        "new_snack": "Novo lanche",
+        "percent_card_description": "das refeições dentro da dieta",
+        "meals": "Refeições",
+        "tab_home": "Início",
+        "tab_snack": "Lanche",
+        "tab_settings": "Configurações",
+        "settings_english": "Inglês",
+        "settings_portuguese": "Português",
+        "settings_languages": "Idiomas",
+        "create_snack_title": "Cadastrar refeição",
+        "name": "Nome",
+        "description": "Descrição",
+        "date": "Data",
+        "time": "Hora",
+        "yes": "Sim",
+        "no": "Não"
+    }
+}

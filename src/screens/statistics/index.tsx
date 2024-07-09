@@ -38,7 +38,7 @@ export function StatisticsScreen() {
         <SafeAreaView style={[styles.container, { backgroundColor: backgroundColor }]}>
 
             <Header
-                onPress={() => navigation.navigate("Home")}
+                onPress={() => navigation.navigate("HomeStack")}
                 type={type}
                 title={average}
                 description="das refeições dentro da dieta"

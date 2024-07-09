@@ -1,3 +1,4 @@
 const SNACKS = "@snacks";
+const LANGUAGE_STORAGE = "@language";
 
-export { SNACKS };
+export { SNACKS, LANGUAGE_STORAGE };

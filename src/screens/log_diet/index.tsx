@@ -5,7 +5,6 @@ import TrashIcon from "@expo/vector-icons/Ionicons"
 import PencilIcon from "@expo/vector-icons/FontAwesome"
 import { styles } from "./styles";
 
-import { Header } from "@/components/header";
 import { CustomButtom } from "@/components/custom_button";
 import { AlternativeHeader } from "@/components/header/alternative";
 
@@ -14,7 +13,7 @@ export function LogDietScreen() {
     const navigation = useNavigation();
 
     function handleNavigateToHome() {
-        navigation.navigate("Home");
+        navigation.navigate("HomeStack");
     }
 
     return (

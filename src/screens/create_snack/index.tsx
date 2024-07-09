@@ -11,10 +11,12 @@ import { SelectedButton } from "@/components/selected_button";
 import { AlternativeHeader } from "@/components/header/alternative";
 
 import { createSnack } from "@/storage/snack/create_snack";
+import { useTranslation } from "react-i18next";
 
 
 export function CreateSnackScreen() {
     const navigation = useNavigation();
+    const { t } = useTranslation();
 
     const [isGreenSelect, setIsGreenSelect] = useState(false);
     const [isRedSelect, setIsRedSelect] = useState(false);
@@ -84,25 +86,25 @@ export function CreateSnackScreen() {
                 <SafeAreaView style={styles.container}>
                     <AlternativeHeader
                         onPress={handleNavigateToHome}
-                        title="Cadastrar refeição"
+                        title={t("create_snack_title")}
                     />
 
                     <View style={styles.content} >
-                        <CustomInput title="Nome"
+                        <CustomInput title={t("name")}
                             onChangeText={setSnackName}
                             value={snackName}
                         />
-                        <CustomInput title="Descriçao"
+                        <CustomInput title={t("description")}
                             onChangeText={setSnackDescription}
                             value={snackDescription}
                         />
 
                         <View style={styles.row}>
-                            <CustomInput title="Data" isDataInput
+                            <CustomInput title={t("date")} isDataInput
                                 onChangeText={setSnackDate}
                                 value={snackDate}
                             />
-                            <CustomInput title="Hora" isHourInput
+                            <CustomInput title={t("time")} isHourInput
                                 onChangeText={setSnackHour}
                                 value={snackHour}
                             />
@@ -110,20 +112,20 @@ export function CreateSnackScreen() {
 
                         <CustomButtom
                             withIcon={false}
-                            title="Cadastrar refeição"
+                            title={t("create_snack_title")}
                             onPress={() => handleCreateSnack()}
                             isDisabled={!(isGreenSelect || isRedSelect)}
                         />
 
                         <View style={styles.row}>
                             <SelectedButton
-                                title="Sim"
+                                title={t("yes")}
                                 onPress={() => { handleSelectedButton("green") }}
                                 isSelect={isGreenSelect} />
 
                             <SelectedButton
                                 isRed
-                                title="Não"
+                                title={t("no")}
                                 onPress={() => { handleSelectedButton("red") }}
                                 isSelect={isRedSelect} />
                         </View>

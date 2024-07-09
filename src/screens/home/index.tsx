@@ -1,6 +1,7 @@
-import { Text, View, Image, Button, FlatList } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { Text, View, Image, FlatList } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { AveragePercentage, PercentCardType } from "@/utils/averagePercentage";
 
@@ -13,10 +14,13 @@ import { CustomButtom } from "@/components/custom_button";
 import { image } from "@/constants/user";
 
 import { getSnack } from "@/storage/snack/get_snack";
-import { useEffect, useState } from "react";
 import { SnackData } from "@/storage/snack/snackData.dto";
+import { useTranslation } from "react-i18next";
 
 export function HomeScreen() {
+
+    const { t } = useTranslation();
+
     const value1 = 80;
     const value2 = 20;
 
@@ -69,7 +73,7 @@ export function HomeScreen() {
 
             <View style={styles.header}>
                 <Text style={styles.title}>
-                    Olá, Wesley
+                    {t("welcome")} Wesley!
                 </Text>
                 <Image
                     src={image}
@@ -80,17 +84,17 @@ export function HomeScreen() {
             <PercentCard
                 withIcon
                 title={average}
-                description="das refeições dentro da dieta"
+                description={t("percent_card_description")}
                 type={type}
                 onPress={() => handleNavigateToStatistics()}
             />
 
             <View style={styles.new_label}>
                 <Text style={styles.text}>
-                    Refeições
+                    {t("meals")}
                 </Text>
                 <CustomButtom
-                    title="Nova Refeição"
+                    title={t("new_snack")}
                     onPress={() => handleNavigateToSnack()}
                 />
             </View>
